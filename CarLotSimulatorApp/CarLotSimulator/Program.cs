@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 
 namespace CarLotSimulator
 {
@@ -6,6 +7,50 @@ namespace CarLotSimulator
     {
         static void Main(string[] args)
         {
+            var lot = new CarLot();
+            
+            
+           
+            var prius = new Car();
+            prius.Year = 2006;
+            prius.Make = "Toyota";
+            prius.Model = "Prius";
+            prius.EngineNoise = "zoom";
+            prius.HonkNoise = "uwu";
+            prius.IsDriveable = true;
+
+            lot.Cars.Add(prius);
+
+            var mazda = new Car()
+            {
+                Year = 2015,
+                Make = "Mazda",
+                Model = "CX-5",
+                EngineNoise = "brrr",
+                HonkNoise = "lol",
+            IsDriveable = true,
+            };
+
+            lot.Cars.Add(mazda);
+
+            var chevy = new Car(2006, "Chevy", "Impala", "reeeee" , "lmao", true);
+
+            
+            lot.Cars.Add(chevy);
+
+            prius.MakeEngineNoise(prius.EngineNoise);
+            mazda.MakeEngineNoise(mazda.EngineNoise);
+            chevy.MakeEngineNoise(chevy.EngineNoise);
+
+            prius.MakeHonkNoise(prius.HonkNoise);
+            mazda.MakeEngineNoise(mazda.HonkNoise);
+            chevy.MakeHonkNoise(chevy.HonkNoise);
+
+            foreach (var car in lot.Cars)
+            {
+                Console.WriteLine($" Year: {car.Year} Make: {car.Make} Model { car.Model}" );
+            }
+
             //TODO
 
             //Create a seperate class file called Car
